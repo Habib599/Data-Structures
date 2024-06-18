@@ -12,23 +12,18 @@ int main() {
     }
 
     set<int> v;
-    int flag=0;
 
     for (int i = 0; i < n; i++) 
     {
-        if (v.count(a[i]) > 0) //v.count man 1 0
+        if (v.count(a[i]) > 0) // ai sonkha v te ase ki na
         {
-            flag = 1;
-            break;
+            cout << "YES" << endl;
+            return 0;
         }
         v.insert(a[i]);// v=2,1,3,5
     }
 
-    if (flag) {
-        cout << "YES" << endl;
-    } else {
-        cout << "NO" << endl;
-    }
-
+    cout << "NO" << endl;
+    
     return 0;
 }
