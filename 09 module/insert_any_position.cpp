@@ -16,7 +16,7 @@ class Node
 void insert_head(Node*&head, Node*&tail, int val)
 {
     Node* newnode=new Node(val);
-    if(tail==NULL)
+    if(head==NULL)
     {
         head=newnode;
         tail=newnode;
@@ -29,7 +29,7 @@ void insert_head(Node*&head, Node*&tail, int val)
 void insert_tail(Node*&head, Node*&tail, int val)
 {
     Node* newnode=new Node(val);
-    if(head==NULL)
+    if(tail==NULL)
     {
         head=newnode;
         tail=newnode;
