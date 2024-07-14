@@ -14,9 +14,8 @@ int main()
     cout << q.size() << endl;
     while (!q.empty())
     {
+        cout << q.front() << endl;
         q.pop();
-        if (!q.empty())
-            cout << q.front() << endl;
     }
     return 0;
 }
