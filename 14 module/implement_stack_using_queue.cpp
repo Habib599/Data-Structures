@@ -1,74 +1,66 @@
-class MyQueue
+class MyStack
 {
 public:
-    stack<int> st;
-    MyQueue()
+    queue<int> q;
+    MyStack()
     {
     }
 
     void push(int x)
     {
-        st.push(x);
+        q.push(x);
     }
 
     int pop()
     {
-        stack<int> newSt;
+        queue<int> newQ;
         int last;
-        while (!st.empty())
+        while (!q.empty())
         {
-            int k = st.top();
-            st.pop();
-            if (st.empty())
+            int k = q.front();
+            q.pop();
+            if (q.empty())
             {
                 // last element
                 last = k;
                 break;
             }
-            newSt.push(k);
+            newQ.push(k);
         }
-        while (!newSt.empty())
-        {
-            st.push(newSt.top());
-            newSt.pop();
-        }
+        q = newQ;
         return last;
     }
 
-    int peek()
+    int top()
     {
-        stack<int> newSt;
+        queue<int> newQ;
         int last;
-        while (!st.empty())
+        while (!q.empty())
         {
-            int k = st.top();
-            st.pop();
-            if (st.empty())
+            int k = q.front();
+            q.pop();
+            if (q.empty())
             {
                 // last element
                 last = k;
             }
-            newSt.push(k);
+            newQ.push(k);
         }
-        while (!newSt.empty())
-        {
-            st.push(newSt.top());
-            newSt.pop();
-        }
+        q = newQ;
         return last;
     }
 
     bool empty()
     {
-        return st.empty();
+        return q.empty();
     }
 };
 
 /**
- * Your MyQueue object will be instantiated and called as such:
- * MyQueue* obj = new MyQueue();
+ * Your MyStack object will be instantiated and called as such:
+ * MyStack* obj = new MyStack();
  * obj->push(x);
  * int param_2 = obj->pop();
- * int param_3 = obj->peek();
+ * int param_3 = obj->top();
  * bool param_4 = obj->empty();
  */

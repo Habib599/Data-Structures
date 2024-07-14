@@ -45,13 +45,13 @@ int main()
         q.push(x);
     }
     s=q;
-    s.print();
+    // s.print();
     while (!q.empty())
     {
-        q.pop();
         cout << q.front() << endl;
+        q.pop();
     }
-    // if (!q.empty())
+    // if (!q.empty()) loop ei baire front acsses
     // {
     //     cout << q.front();
     // }

@@ -76,8 +76,8 @@ int main()
     }
     while (!q.empty())
     {
-        q.pop();
         cout << q.front() << endl;
+        q.pop();
     }
     return 0;
 }
