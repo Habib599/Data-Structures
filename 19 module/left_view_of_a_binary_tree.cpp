@@ -24,8 +24,9 @@ vector<int> getLeftView(TreeNode<int> *root)
     //    Write your code here
     bool frq[3005] = {false};
     queue<pair<TreeNode<int> *, int>> q;
-    if (root)
-        q.push({root, 1});
+
+    if (root) q.push({root, 1});
+
     vector<int> v;
     while (!q.empty())
     {
@@ -40,10 +41,9 @@ vector<int> getLeftView(TreeNode<int> *root)
             frq[level] = true;
         }
 
-        if (node->left)
-            q.push({node->left, level + 1});
-        if (node->right)
-            q.push({node->right, level + 1});
+        if (node->left) q.push({node->left, level + 1});
+        if (node->right) q.push({node->right, level + 1});
     }
     return v;
 }
+ 

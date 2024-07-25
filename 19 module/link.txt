@@ -1,0 +1,6 @@
+1.https://www.codingninjas.com/studio/problems/code-find-a-node_5682
+2.https://www.codingninjas.com/studio/problems/node-level_920383
+3.https://www.codingninjas.com/studio/problems/left-view-of-a-binary-tree_920519
+4.https://www.codingninjas.com/studio/problems/diameter-of-the-binary-tree_920552
+5.https://www.codingninjas.com/studio/problems/special-binary-tree_920502
+6.https://www.codingninjas.com/studio/problems/reverse-level-order-traversal_764339
