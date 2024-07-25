@@ -36,33 +36,24 @@ Node *input_tree()
         cin >> l >> r;
         Node *myLeft;
         Node *myRight;
-        if (l == -1)
-            myLeft = NULL;
-        else
-            myLeft = new Node(l);
-        if (r == -1)
-            myRight = NULL;
-        else
-            myRight = new Node(r);
+        if (l == -1) myLeft = NULL;
+        else myLeft = new Node(l);
+        
+        if (r == -1) myRight = NULL;
+        else myRight = new Node(r);
 
         p->left = myLeft;
         p->right = myRight;
 
         // 3. children gulo ke push koro
-        if (p->left)
-            q.push(p->left);
-        if (p->right)
-            q.push(p->right);
+        if (p->left) q.push(p->left);
+        if (p->right) q.push(p->right);
     }
     return root;
 }
 void level_order(Node *root)
 {
-    if (root == NULL)
-    {
-        cout << "Tree nai" << endl;
-        return;
-    }
+    if (root == NULL) return;
     queue<Node *> q;
     q.push(root);
     int sum=0;
@@ -76,10 +67,8 @@ void level_order(Node *root)
         sum+=f->val;
 
         // 3. tar children gulo ke rakha
-        if (f->left)
-            q.push(f->left);
-        if (f->right)
-            q.push(f->right);
+        if (f->left) q.push(f->left);
+        if (f->right) q.push(f->right);
     }
     cout<<sum<<endl;
 }

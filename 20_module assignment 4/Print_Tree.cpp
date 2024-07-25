@@ -59,17 +59,17 @@ vector<int> reverseOrder(Node* root)
 {
     vector<int> v;
     queue<Node*> q;
-    if (root)
-        q.push(root);
+    if (root) q.push(root);
+    
     while (!q.empty()) 
     {
         Node* node = q.front();
         q.pop();
+
         v.push_back(node->val);
-        if (node->right)
-            q.push(node->right);
-        if (node->left)
-            q.push(node->left);
+
+        if (node->right) q.push(node->right);
+        if (node->left) q.push(node->left);
     }
     reverse(v.begin(), v.end());
     return v;

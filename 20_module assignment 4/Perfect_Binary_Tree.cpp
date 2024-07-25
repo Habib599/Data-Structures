@@ -82,6 +82,7 @@ bool isPerfect(Node* root)
     int node = count(root);
     int height = maxHeight(root);
     int totalNode = pow(2, height) - 1;
+    
 
     return node == totalNode;
 }

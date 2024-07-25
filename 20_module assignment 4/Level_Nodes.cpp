@@ -53,7 +53,7 @@ Node* input_tree() {
     return root;
 }
 
-void printLevel(Node* root, int X) 
+void print_anyLevel(Node* root, int X) 
 {
     queue<pair<Node*, int>> q;
     q.push({root, 0});
@@ -64,25 +64,13 @@ void printLevel(Node* root, int X)
         level = q.front().second;
         q.pop();
 
-        if (level == X) 
-        {
-            cout << node->val << " ";
-        }
+        if (level == X) cout << node->val << " ";
 
-        if (node->left != NULL) 
-        {
-            q.push({node->left, level + 1});
-        }
+        if (node->left)  q.push({node->left, level + 1});
 
-        if (node->right != NULL) 
-        {
-            q.push({node->right, level + 1});
-        }
+        if (node->right) q.push({node->right, level + 1});
     }
-    if (level<X|| X < 0) 
-    {
-        cout << "Invalid";
-    }
+    if (level<X|| X < 0) cout << "Invalid";
 }
 
 int main() 
@@ -92,7 +80,7 @@ int main()
     int X;
     cin >> X;
 
-    printLevel(root, X);
+    print_anyLevel(root, X);
 
     return 0;
 }
