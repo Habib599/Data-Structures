@@ -6,13 +6,14 @@ int main()
     mp["Sakib al hasn"] = 79; // O(logN)
     mp.insert({"akib", 100});
     mp.insert({"akib", 150});
+    mp.insert({"shamim", 70});  
     mp["tamim"] = 79;
 
     // for (auto it = mp.begin(); it != mp.end(); it++)
     // {
     //     cout << it->first << " " << it->second << endl; // O(logN)
     // }
-
+    cout<< mp["shamim"] << endl;
     cout << mp.count("akib") << endl;
     return 0;
 }
