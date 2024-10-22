@@ -4,7 +4,7 @@
 Time Complexity and Binary Search</summary>
     <ul>
         <li>1. Time Complexsity</li>
-        <li>2. STL Vector</li>
+        <li>2. Vector</li>
         <li>3. Prefix Sum and Binary Search</li>
     </ul>
 
