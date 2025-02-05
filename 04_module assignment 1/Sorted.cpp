@@ -1,41 +1,34 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-    int t;
-    cin >> t;
-    
-    while (t--)
-    {
-        int n;
-        cin >> n;
-        
-        int a[n];
-        for (int i = 0; i < n; i++)
-        {
-            cin >> a[i];
+bool isSorted(const vector<int>& A) {
+    for (int i = 0; i < A.size() - 1; ++i) {
+        if (A[i] > A[i + 1]) {
+            return false;
         }
-        
-        int flag = 1;
-        for (int i = 1; i < n; i++)
-        {
-            if (a[i] < a[i-1])
-            {
-                flag = 0;
-                break;
-            }
-        }
-        
-        if (flag) 
-        {
-            cout << "YES" << endl;
-        }
-        else 
-        {
-            cout << "NO" << endl;
-        }  
     }
-    
+    return true;
+}
+
+int main() {
+    int T;
+    cin >> T;
+
+    while (T--) {
+        int N;
+        cin >> N;
+
+        vector<int> A(N);
+        for (int i = 0; i < N; ++i) {
+            cin >> A[i];
+        }
+
+        if (isSorted(A)) {
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
+
     return 0;
 }

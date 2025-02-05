@@ -1,38 +1,40 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int main()
-{
-    int n;
-    cin>>n;
-    vector<int>a(n);
-    vector<int>b(n);
-    for (int i = 0; i <n; i++)
-    {
-        cin>>a[i];
+
+vector<int> concatenateArrays(const vector<int>& A, const vector<int>& B) {
+    vector<int> C;
+    // First, add all elements of B
+    for (int num : B) {
+        C.push_back(num);
     }
-    for (int i = 0; i <n; i++)
-    {
-        cin>>b[i];
+    // Then, add all elements of A
+    for (int num : A) {
+        C.push_back(num);
+    }
+    return C;
+}
+
+int main() {
+    int N;
+    cin >> N;
+
+    vector<int> A(N), B(N);
+    for (int i = 0; i < N; ++i) {
+        cin >> A[i];
+    }
+    for (int i = 0; i < N; ++i) {
+        cin >> B[i];
     }
 
-    vector<int>c;
-    c.reserve(a.size()+b.size());
-    for(int num:b)
-    {
-        c.push_back(num);
+    // Concatenate B and A
+    vector<int> C = B;
+    C.insert(C.end(),A.begin(),A.end());
+
+    // Print the result
+    for (int num : C) {
+        cout << num << " ";
     }
-    for(int num:a)
-    {
-        c.push_back(num);
-    }
-    
-    for (int i = 0; i < c.size(); i++)
-    {
-        cout<<c[i];
-        if(i!=c.size()-1){
-            cout<<" ";
-        }
-    }
-    
+    cout << endl;
+
     return 0;
 }

@@ -1,32 +1,30 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main()
-{
-    int n;
-    cin>>n;
-    vector<int>a(n);
-    for (int i = 0; i <n; i++)
-    {
-        cin>>a[i];
+
+int main() {
+    int N;
+    cin >> N;
+
+    vector<int> A(N);
+    for (int i = 0; i < N; ++i) {
+        cin >> A[i];
     }
-    for (int i = 0; i < a.size(); i++)
-    {
-        if(a[i]>0)
-        { 
-            a[i]=1;
+
+    // Perform the replacement
+    for (int i = 0; i < N; ++i) {
+        if (A[i] > 0) {
+            A[i] = 1;
+        } else if (A[i] < 0) {
+            A[i] = 2;
         }
-        else if(a[i]<0)
-        { 
-            a[i]=2;
-        }
+        // If A[i] == 0, leave it unchanged
     }
-    for (int i = 0; i < a.size(); i++)
-    {
-        cout<<a[i];
-        if(i!=a.size()-1){
-            cout<<" ";
-        }
+
+    // Print the modified array
+    for (int i = 0; i < N; ++i) {
+        cout << A[i] << " ";
     }
-    
+    cout << endl;
+
     return 0;
 }

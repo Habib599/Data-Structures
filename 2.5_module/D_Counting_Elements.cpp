@@ -5,24 +5,19 @@ int main()
     int n;
     cin>>n;
     vector<int>a(n);
-    for (int i = 0; i <n; i++)
-    {
+    for (int i = 0; i <n; i++){
         cin>>a[i];
     }
-    int count=0;
+    // Use a hash set for quick lookup
+    unordered_set<int> elements(a.begin(), a.end());
 
-    for (int i = 0; i < a.size(); i++)
-    {
-        for (int j = 1; j < a.size(); j++)
-        {
-            if(a[i]==a[j])
-            {
-                count++;
-            }
+    int count = 0;
+    for (int i = 0; i < n; ++i) {
+        if (elements.find(a[i] + 1) != elements.end()) {
+            count++;
         }
     }
-    cout<<count;
 
-    
+    cout << count << endl;
     return 0;
 }

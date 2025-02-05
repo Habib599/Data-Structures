@@ -2,28 +2,30 @@
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
+    int N;
+    cin >> N;
 
-    int a[n];
-    for (int i = 0; i < n; i++) 
-    {
-        cin >> a[i];
+    vector<int> A(N);
+    for (int i = 0; i < N; ++i) {
+        cin >> A[i];
     }
 
-    set<int> v;
+    unordered_set<int> v;
+    bool Duplicate = false;
 
-    for (int i = 0; i < n; i++) 
-    {
-        if (v.count(a[i]) > 0) // ai sonkha v te ase ki na
-        {
-            cout << "YES" << endl;
-            return 0;
+    for (int i = 0; i < N; ++i) {
+        if (v.find(A[i]) != v.end()) {
+            Duplicate = true;
+            break;
         }
-        v.insert(a[i]);// v=2,1,3,5
+        v.insert(A[i]);
     }
 
-    cout << "NO" << endl;
-    
+    if (Duplicate) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
+
     return 0;
 }
