@@ -24,9 +24,7 @@ void insert(Node*& head, Node*& tail, int val) {
 
 int readListAndGetSize(Node*& head, Node*& tail) {
     int val, size = 0;
-    while (true) {
-        cin >> val;
-        if (val == -1) break;
+    while ( cin >> val && val != -1 ) {
         insert(head, tail, val);
         size++;
     }

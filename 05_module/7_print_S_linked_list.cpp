@@ -23,6 +23,7 @@ int main()
     b->next=c;
     c->next=d;
     Node* tmp=head;
+    
     while(tmp!=NULL)
     {
         cout<<tmp->val<<endl;

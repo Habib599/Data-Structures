@@ -20,7 +20,6 @@ int main() {
         // If A[i] == 0, leave it unchanged
     }
 
-    // Print the modified array
     for (int i = 0; i < N; ++i) {
         cout << A[i] << " ";
     }

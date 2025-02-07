@@ -5,46 +5,37 @@ class Node
     public:
         int val;
         Node* next;
-    Node (int val)
-    {
+    Node (int val){
         this->val=val;
         this->next=NULL;
     }
 };
-void insertTail(Node* &head,int val)
+void insertTail(Node*& head, int v) {
+    if (!head) head = new Node(v);
+    else {
+        Node* tmp = head;
+        while (tmp->next) tmp = tmp->next;
+        tmp->next = new Node(v);
+    }
+}
+
+void getmid(Node *head,int pos)
 {
     Node *tmp=head;
-    Node* newnode=new Node(val);
-    if(head==NULL)
-    {
-        head=newnode;
-        return;
-    }
-    while(tmp->next!=NULL)
-    {
+    for(int i=1;i<=(pos/2)-1;i++){
         tmp=tmp->next;
     }
-    tmp->next=newnode;
-}
-void printpos(Node *head,int pos)
-{
-    Node *tmp=head;
-    for(int i=1;i<=(pos/2)-1;i++)
-    {
-        tmp=tmp->next;
+    if(pos%2==0){
+        cout<<tmp->val<<" ";// even
     }
-      if(pos%2==0)
-    {
-        cout<<tmp->val<<" ";
-    }
-    cout<<tmp->next->val;
+    cout<<tmp->next->val;// odd
 }
+
 int size(Node *head)
 {
     Node *tmp = head;
     int cnt = 0;
-    while (tmp != NULL)
-    {
+    while (tmp){
         cnt++;
         tmp = tmp->next;
     }
@@ -58,7 +49,7 @@ int main()
     {
         insertTail(head,v);
     }
-    printpos(head,size(head));
+    getmid(head,size(head));
     
     return 0;
 }

@@ -1,19 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> concatenateArrays(const vector<int>& A, const vector<int>& B) {
-    vector<int> C;
-    // First, add all elements of B
-    for (int num : B) {
-        C.push_back(num);
-    }
-    // Then, add all elements of A
-    for (int num : A) {
-        C.push_back(num);
-    }
-    return C;
-}
-
 int main() {
     int N;
     cin >> N;

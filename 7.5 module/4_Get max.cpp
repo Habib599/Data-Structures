@@ -11,40 +11,34 @@ class Node
         this->next=NULL;
     }
 };
-void insert(Node *&head,int v)
-{
-    Node * newnode= new Node(v);
-    if(head== NULL)
-    {
-        head=newnode;
-        return;
+void insert(Node*& head, int v) {
+    if (!head) head =new Node(v);
+    else {
+        Node *tmp=head;
+        while (tmp->next){
+            tmp=tmp->next;
+        }
+        tmp->next=new Node(v);
     }
-    Node *tmp=head;
-    while (tmp->next!=NULL)
-    {
-        tmp=tmp->next;
-    }
-    tmp->next=newnode;
 }
 void max(Node * head)
 {
     int max=head->val;
     Node*tmp=head;
-    while (tmp!=NULL)
-    {
-        if(tmp->val>max)
-        {
+    while (tmp){
+        if(tmp->val>max){
             max=tmp->val;
         }
         tmp=tmp->next;
     }
     cout<<max<<" ";
 }
+
 void min(Node * head)
 {
     int min=head->val;
     Node*tmp=head;
-    while (tmp!=NULL)
+    while (tmp)
     {
         if(tmp->val<min)
         {
@@ -56,15 +50,15 @@ void min(Node * head)
 }
 int main()
 {
-    int val;
+    int v;
     Node* head=NULL;
-    while(1)
-    {
-        cin>>val;
-        if(val==-1)
-            break;
-        insert(head,val);
+    while (cin>>v && v!=-1 ) {
+        insert(head,v);
     }
+
     max(head);
+    // cout<<endl;
+    // min(head);
+
     return 0;
 }
