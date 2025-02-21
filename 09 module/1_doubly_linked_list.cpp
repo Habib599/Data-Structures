@@ -13,21 +13,17 @@ class Node
         this->next=NULL;
     }
 };
-void print_normal(Node *head)
-{
+void print_normal(Node *head){
     Node* tmp=head;
-    while(tmp!=NULL)
-    {
+    while(tmp){
         cout<<tmp->val<<" ";
         tmp=tmp->next;
     }
     cout<<endl;
 }
-void print_reverse(Node* tail)
-{
+void print_reverse(Node* tail){
     Node*tmp=tail;
-    while(tmp!=NULL)
-    {
+    while(tmp){
         cout<<tmp->val<<" ";
         tmp=tmp->pre;
     }

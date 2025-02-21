@@ -13,32 +13,28 @@ public:
         this->prev = NULL;
     }
 };
-void print_normal(Node *head)
-{
+void print_normal(Node *head){
     Node *tmp = head;
-    while (tmp != NULL)
-    {
+    while (tmp){
         cout << tmp->val << " ";
         tmp = tmp->next;
     }
     cout << endl;
 }
-void print_reverse(Node *tail)
-{
+
+void print_reverse(Node *tail){
     Node *tmp = tail;
-    while (tmp != NULL)
-    {
+    while (tmp){
         cout << tmp->val << " ";
         tmp = tmp->prev;
     }
     cout << endl;
 }
-void insert_at_position(Node *head, int pos, int val)
+void insert_at_position(Node *head, int pos, int v)
 {
-    Node *newNode = new Node(val);
+    Node *newNode = new Node(v);
     Node *tmp = head;
-    for (int i = 1; i <= pos - 1; i++)
-    {
+    for (int i = 1; i < pos ; i++){
         tmp = tmp->next;
     }
     newNode->next = tmp->next;     // 100->30
@@ -46,12 +42,11 @@ void insert_at_position(Node *head, int pos, int val)
     newNode->next->prev = newNode; // 100<-30
     newNode->prev = tmp;           // 20<-100
 }
-int size(Node *head)
-{
+
+int size(Node *head){
     Node *tmp = head;
     int cnt = 0;
-    while (tmp != NULL)
-    {
+    while (tmp){
         cnt++;
         tmp = tmp->next;
     }
@@ -60,10 +55,8 @@ int size(Node *head)
 void insert_head(Node *&head, Node *&tail, int val)
 {
     Node *newNode = new Node(val);
-    if (head == NULL)
-    {
-        head = newNode;
-        tail = newNode;
+    if (!head){
+        head = tail= newNode;
         return;
     }
     newNode->next = head;
@@ -73,10 +66,8 @@ void insert_head(Node *&head, Node *&tail, int val)
 void insert_tail(Node *&head, Node *&tail, int val)
 {
     Node *newNode = new Node(val);
-    if (tail == NULL)
-    {
-        head = newNode;
-        tail = newNode;
+    if (!tail){
+        head =tail = newNode;
         return;
     }
     tail->next = newNode;
@@ -98,25 +89,23 @@ int main()
     b->prev = a;
     b->next = c;
     c->prev = b;
+
     int pos, val;
     cin >> pos >> val;
 
-    if (pos > size(head))
-    {
+    if (pos > size(head)){
         cout << "Invalid" << endl;
     }
-    else if (pos == 0)
-    {
+    else if (pos == 0){
         insert_head(head, tail, val);
     }
-    else if (pos == size(head))
-    {
+    else if (pos == size(head)){
         insert_tail(head, tail, val);
     }
-    else
-    {
+    else{
         insert_at_position(head, pos, val);
     }
+
     print_normal(head);
     print_reverse(tail);
 

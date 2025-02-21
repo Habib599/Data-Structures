@@ -10,24 +10,20 @@ public:
         this->next = NULL;
     }
 };
-void insert(Node*& head, Node*& tail, int val) 
-{
-    Node* newNode = new Node(val);
-    if (head == NULL) 
-    {
-        head = tail = newNode;
-    } else 
-    {
-        tail->next = newNode;
-        tail = newNode;
+void insert(Node*& head, int v) {
+    if (!head) head =new Node(v);
+    else {
+        Node *tmp=head;
+        while (tmp->next){
+            tmp=tmp->next;
+        }
+        tmp->next=new Node(v);
     }
 }
-int sizelist(Node*head)
-{
+int sizelist(Node*head){
     int count=0;
     Node*tmp=head;
-    while (tmp!=NULL)
-    {
+    while (tmp){
         count++;
         tmp=tmp->next;
     }return count;
@@ -37,40 +33,31 @@ void getmid(Node* head)
     Node* tmp=head;
     int size=sizelist(head);
     int mid=(size+1)/2;
-    for (int i = 1; i <mid; i++)
-    {
+    for (int i = 1; i <mid; i++){
         tmp=tmp->next;
     }
-    if(size%2==0)
-    {
-        cout<<tmp->val<<" ";
+    if(size%2==0){
+        cout<<tmp->val<<" ";//even
         cout<< tmp->next->val;
     }
     else
-        cout<<tmp->val<<endl;
+        cout<<tmp->val<<endl;// odd
 }
 int main() {
-    int val;
+    int v;
     Node* head=NULL;
-    Node* tail=NULL;
-
-    while (1) 
-    {
-        cin>>val;
-        if (val==-1)
-            break;
-        insert(head,tail,val);
+    while (cin>>v && v!=-1 ) {
+        insert(head,v);
     }
-    for (Node* i=head;i->next!=NULL;i=i->next) 
-    {
-        for (Node* j=i->next;j!=NULL;j=j->next) 
-        {
-            if (i->val<j->val) 
-            {
-                swap(i->val,j->val);
+
+    for (Node* i=head; i ;i=i->next) {
+        for (Node* j=i->next; j ;j=j->next) {
+            if (i->val <j->val) {
+                swap(i->val,j->val);// desecnding
             }
         }
     }
+
     getmid(head);
     return 0;
 }

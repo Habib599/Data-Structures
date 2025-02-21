@@ -23,17 +23,18 @@ int main()
     Node *slow = head;
     Node *fast = head;
     bool flag = false;
-    while (fast != NULL && fast->next != NULL)
+
+    while (fast && fast->next)
     {
         slow = slow->next;
         fast = fast->next->next;
-        if (fast == slow)
-        {
+        if (fast == slow){
             flag = true;
             break;
         }
     }
-    if (flag == true)
+
+    if (flag)
         cout << "Cycle Detected" << endl;
     else
         cout << "No Cycle" << endl;

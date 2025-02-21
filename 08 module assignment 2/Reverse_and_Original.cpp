@@ -5,41 +5,32 @@ class Node
     public:
         int val;
         Node* next;
-    Node (int val)
-    {
+    Node (int val){
         this->val=val;
         this->next=NULL;
     }
 };
-void insert(Node *&head,int v)
-{
-    Node * newnode= new Node(v);
-    if(head== NULL)
-    {
-        head=newnode;
-        return;
+void insert(Node *&head,int v){
+    if(!head) head=new Node(v);
+    else{
+        Node *tmp=head;
+        while (tmp->next){
+            tmp=tmp->next;
+        }
+        tmp->next=new Node(v);
     }
-    Node *tmp=head;
-    while (tmp->next!=NULL)
-    {
-        tmp=tmp->next;
-    }
-    tmp->next=newnode;
 }
-void reverse(Node* n)
-{
-    if(n==NULL)
-        return;
-    reverse(n->next);
-    cout<<n->val<<" ";
+
+void reverse(Node* head){
+    if(!head) return;
+    reverse(head->next);
+    cout<<head->val<<" ";
 }
-void orginal(Node*head)
-{
-    Node* tmp=head;
-    while(tmp!=NULL)
-    {
-        cout<<tmp->val<<" ";
-        tmp=tmp-> next;
+
+void orginal(Node*head){
+    while(head){
+        cout<<head->val<<" ";
+        head=head-> next;
     }
         
 }
@@ -47,11 +38,7 @@ int main()
 {
     int val;
     Node* head=NULL;
-    while(1)
-    {
-        cin>>val;
-        if(val==-1)
-            break;
+    while(cin>>val &&val!=-1){
         insert(head,val);
     }
     reverse(head);
