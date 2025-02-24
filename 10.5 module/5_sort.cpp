@@ -9,8 +9,7 @@ int main() {
         l1.push_back(val);
     }
     l1.sort();
-    for (int val : l1)
-    {
+    for (int val : l1){
         cout << val<< " ";
     }
     return 0;

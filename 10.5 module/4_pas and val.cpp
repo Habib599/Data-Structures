@@ -1,18 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void print_left_to_right(list<int>& dll) {
+void print_h(list<int>& dll) {
     for (auto it = dll.begin(); it != dll.end(); ++it) {
-        cout << *it;
-        if (next(it) != dll.end()) cout << " ";
+        cout << *it<<" ";
+        //if (next(it) != dll.end()) cout << " ";
     }
     cout << endl;
 }
 
-void print_right_to_left(list<int>& dll) {
+void print_t(list<int>& dll) {
     for (auto it = dll.rbegin(); it != dll.rend(); ++it) {
-        cout << *it;
-        if (next(it) != dll.rend()) cout << " ";
+        cout << *it<<" ";
+        //if (next(it) != dll.rend()) cout << " ";
     }
     cout << endl;
 }
@@ -27,8 +27,8 @@ void insert_at_position(list<int>& dll, int index, int value) {
     advance(it, index); // ইনডেক্স অনুযায়ী পজিশনে পৌঁছানো
     dll.insert(it, value); // নির্দিষ্ট স্থানে ইনসার্ট
 
-    print_left_to_right(dll);
-    print_right_to_left(dll);
+    print_h(dll);
+    print_t(dll);
 }
 
 int main() {
