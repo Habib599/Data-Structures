@@ -5,23 +5,22 @@ int main()
     stack<int> st;
     int n;
     cin >> n;
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++){
         int x;
         cin >> x;
         st.push(x);
     }
 
-    stack<int>stt;
+    stack<int>st2;
     while (!st.empty())
     {
-        stt.push(st.top());
+        st2.push(st.top());
         st.pop();
     }
-    while (!stt.empty())
+    while (!st2.empty())
     {
-        cout << stt.top() << " ";
-        stt.pop();
+        cout << st2.top() << " ";
+        st2.pop();
     }
     return 0;
 }

@@ -4,24 +4,19 @@ class myStack
 {
 public:
     list<int> l;
-    void push(int val)
-    {
+    void push(int val){
         l.push_back(val);
     }
-    void pop()
-    {
+    void pop(){
         l.pop_back();
     }
-    int top()
-    {
+    int top(){
         return l.back();
     }
-    int size()
-    {
+    int size(){
         return l.size();
     }
-    bool empty()
-    {
+    bool empty(){
         if (l.size() == 0)
             return true;
         else

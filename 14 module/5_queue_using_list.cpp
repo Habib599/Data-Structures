@@ -4,32 +4,25 @@ class myQueue
 {
 public:
     list<int> l;
-    void push(int val)
-    {
+    void push(int val){
         l.push_back(val);
     }
-    void print()
-    {
-        for (int val : l)
-        {
+    void print(){
+        for (int val : l){
             cout << val << " ";
         }
         cout << endl;
     }
-    void pop()
-    {
+    void pop(){
         l.pop_front();
     }
-    int front()
-    {
+    int front(){
         return l.front();
     }
-    int size()
-    {
+    int size(){
         return l.size();
     }
-    bool empty()
-    {
+    bool empty(){
         return l.empty();
     }
 };

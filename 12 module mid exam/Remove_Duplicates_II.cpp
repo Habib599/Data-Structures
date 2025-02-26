@@ -4,14 +4,14 @@ int main()
 {
     list<int>val;
     int v;
-    while (cin >> v && v != -1) 
-    {
+    while (cin >> v && v != -1) {
         val.push_back(v);
     }
+    
     val.sort();
     val.unique();
-    for (int v : val) 
-    {
+
+    for (int v : val) {
         cout<<v<<" ";
     }
     cout<<endl;

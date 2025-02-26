@@ -11,47 +11,36 @@ class Node
         this->next=NULL;
     }
 };
-void insertTail(Node*& head, int v)
-{
-    Node* newnode = new Node(v);
-    if (head == NULL)
-    {
-        head = newnode;
-        return;
+void insertTail(Node*& head, int v){
+    Node* newNode = new Node(v);
+    if (!head) {
+        head = newNode;
+    } 
+    else {
+        Node* temp = head;
+        while (temp->next) {
+            temp = temp->next;
+        }
+        temp->next = newNode;
     }
-    Node* tmp = head;
-    while (tmp->next != NULL)
-    {
-        tmp = tmp->next;
-    }
-    tmp->next = newnode;
 }
 void deleteDublicate(Node*head)
 {
-    if(head==NULL)
-    {
-        return;
-    }
+    if(!head) return;
     Node* tmp=head;
-    while(tmp->next!=NULL)
-    {
-        if(tmp->val==tmp->next->val)
-        {
+    while(tmp->next!=NULL){
+        if(tmp->val == tmp->next->val){
             Node* deletenode=tmp->next;
             tmp->next=deletenode->next;
-            delete deletenode;
         }
-        else
-        {
+        else{
             tmp=tmp->next;
         }
     }
 }
-void print(Node* head)
-{
+void print(Node* head){
     Node* tmp = head;
-    while (tmp != NULL)
-    {
+    while (tmp){
         cout << tmp->val << " ";
         tmp = tmp->next;
     }
@@ -67,12 +56,9 @@ int main()
     {
         insertTail(head,val);
     }
-    for(Node*i=head; i->next!=NULL;i=i->next)
-    {
-        for(Node* j=i->next;j!=NULL;j=j->next)
-        {
-            if(i->val>j->val)
-            {
+    for(Node*i=head; i->next!=NULL;i=i->next){
+        for(Node* j=i->next;j!=NULL;j=j->next){
+            if(i->val>j->val){
                 swap(i->val,j->val);
             }
         }
